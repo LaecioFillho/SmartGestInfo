@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8" /><title>Política de Privacidade</title></head>
+  <body>
+    <h1>Política de Privacidade</h1>
+    <p>O SmartGest respeita a privacidade dos usuários. Nenhum dado pessoal é vendido ou compartilhado sem consentimento.</p>
+    <p>Os dados de login são utilizados apenas para autenticação no Firebase e não são armazenados fora da plataforma.</p>
+  </body>
+</html>
