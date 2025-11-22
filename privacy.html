@@ -1,9 +1,184 @@
 <!DOCTYPE html>
-<html>
-  <head><meta charset="UTF-8" /><title>Política de Privacidade</title></head>
-  <body>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade – SmartGest</title>
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f7f7;
+      --text: #222;
+      --card: #ffffff;
+      --primary: #1e90ff;
+      --border: #dcdcdc;
+    }
+
+    body.dark {
+      --bg: #111;
+      --text: #eee;
+      --card: #1a1a1a;
+      --border: #333;
+    }
+
+    body {
+      background: var(--bg);
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: var(--text);
+      transition: 0.3s ease-in-out;
+    }
+
+    header {
+      background: var(--card);
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header img {
+      height: 45px;
+    }
+
+    .toggle-dark {
+      cursor: pointer;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .toggle-dark:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .container {
+      max-width: 900px;
+      padding: 30px 20px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 25px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      animation: fadeIn 0.6s ease;
+    }
+
+    p {
+      line-height: 1.65;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 26px; }
+      .card { padding: 18px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="/logo.png" alt="SmartGest Logo">
+
+    <button class="toggle-dark" id="darkBtn">🌙 Tema Escuro</button>
+  </header>
+
+  <div class="container">
     <h1>Política de Privacidade</h1>
-    <p>O SmartGest respeita a privacidade dos usuários. Nenhum dado pessoal é vendido ou compartilhado sem consentimento.</p>
-    <p>Os dados de login são utilizados apenas para autenticação no Firebase e não são armazenados fora da plataforma.</p>
-  </body>
+
+    <div class="card">
+      <p>
+        O <strong>SmartGest</strong> valoriza profundamente a privacidade e segurança dos seus usuários.
+        Todas as informações armazenadas no aplicativo são utilizadas exclusivamente para
+        proporcionar a melhor experiência possível no gerenciamento financeiro.
+      </p>
+
+      <p>
+        Nenhum dado pessoal é vendido ou compartilhado com terceiros sem autorização.
+        As informações de autenticação são processadas diretamente pelos serviços do
+        <strong>Firebase Authentication</strong>, garantindo um nível elevado de segurança.
+      </p>
+
+      <p>
+        Dados como transações, categorias, lembretes e preferências são armazenados no 
+        <strong>Firebase Firestore</strong>. Eles nunca são utilizados fora do contexto do aplicativo.
+      </p>
+
+      <p>
+        Você pode solicitar a exclusão completa dos seus dados entrando em contato com o suporte
+        oficial do SmartGest.
+      </p>
+
+      <p>
+        Atualizamos esta política periodicamente para acompanhar melhorias, novas funcionalidades
+        e requisitos legais.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 SmartGest – Todos os direitos reservados.
+  </footer>
+
+  <script>
+    const btn = document.getElementById("darkBtn");
+    const body = document.body;
+
+    // Carregar tema salvo
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      btn.textContent = "☀️ Tema Claro";
+    }
+
+    btn.addEventListener("click", () => {
+      body.classList.toggle("dark");
+
+      if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        btn.textContent = "☀️ Tema Claro";
+      } else {
+        localStorage.setItem("theme", "light");
+        btn.textContent = "🌙 Tema Escuro";
+      }
+    });
+  </script>
+
+</body>
 </html>
+
