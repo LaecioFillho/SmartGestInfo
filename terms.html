@@ -1,8 +1,121 @@
 <!DOCTYPE html>
-<html>
-  <head><meta charset="UTF-8" /><title>Termos de Serviço</title></head>
-  <body>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termos de Serviço • SmartGest</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s ease;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --card: #f3f3f3;
+      --primary: #4a8cff;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f0f0f;
+      --text: #eaeaea;
+      --card: #1a1a1a;
+      --primary: #6fa3ff;
+    }
+
+    header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      border-bottom: 1px solid #cccccc44;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px #00000022;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 32px;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .toggle-btn {
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: white;
+      font-weight: bold;
+      border: none;
+      transition: 0.2s;
+    }
+
+    .toggle-btn:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="./icon.png" alt="SmartGest Logo" width="35" />
+      SmartGest
+    </div>
+    <button class="toggle-btn" onclick="toggleTheme()">Alternar Tema</button>
+  </header>
+
+  <div class="container">
     <h1>Termos de Serviço</h1>
-    <p>Ao utilizar este app, você concorda em usar a aplicação de forma responsável e conforme as leis vigentes.</p>
-  </body>
+    <p>Ao utilizar o SmartGest, você concorda em seguir todas as regras descritas neste documento, garantindo o uso responsável e seguro do aplicativo.</p>
+
+    <p>O SmartGest foi desenvolvido para auxiliar usuários no gerenciamento de gastos, registros mensais e organização pessoal, não assumindo qualquer responsabilidade por decisões financeiras tomadas com base nas informações inseridas no aplicativo.</p>
+
+    <p>É proibido utilizar o sistema para atividades fraudulentas, ilícitas ou que violem leis locais, nacionais ou internacionais.</p>
+
+    <p>O usuário concorda que funcionalidades podem ser alteradas, removidas ou adicionadas com o tempo, visando melhorias constantes do serviço.</p>
+
+    <p>Ao continuar utilizando o SmartGest, você demonstra que leu, entendeu e concorda com estes termos de forma plena.</p>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute("data-theme");
+      html.setAttribute("data-theme", current === "light" ? "dark" : "light");
+    }
+  </script>
+</body>
 </html>
