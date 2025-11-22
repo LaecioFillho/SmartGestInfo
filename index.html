@@ -1,11 +1,205 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>SmartGest</title>
-  </head>
-  <body>
-    <h1>Bem-vindo a pagina oficial do SmartGest!</h1>
-    <p>Aplicativo desenvolvido com React Native e Firebase.</p>
-  </body>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartGest • Controle Financeiro Inteligente</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(90deg, #1e90ff, #4aa8ff);
+      padding: 30px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header img {
+      height: 55px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .menu a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .menu a:hover {
+      opacity: 0.8;
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px;
+      gap: 60px;
+    }
+    .hero-text {
+      max-width: 450px;
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      color: #1e90ff;
+    }
+    .hero-text p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    .cta-btn {
+      display: inline-block;
+      margin-top: 25px;
+      background: #1e90ff;
+      padding: 14px 24px;
+      color: white;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .cta-btn:hover {
+      background: #1577d6;
+    }
+    .hero img {
+      width: 320px;
+      border-radius: 25px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+      animation: slideUp 1.2s ease forwards;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 70px 20px;
+      text-align: center;
+    }
+    .features h2 {
+      font-size: 32px;
+      margin-bottom: 50px;
+      color: #1e90ff;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+    .feature-item {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+    .feature-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .feature-item img {
+      height: 60px;
+      margin-bottom: 15px;
+    }
+    .feature-item h3 {
+      margin-bottom: 10px;
+      color: #1e90ff;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1e90ff;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="/mnt/data/icon.png" alt="SmartGest Logo" />
+    <nav class="menu">
+      <a href="#features">Funcionalidades</a>
+      <a href="#download">Download</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Simplifique sua Vida Financeira</h1>
+      <p>O SmartGest é seu aplicativo de controle financeiro moderno, inteligente e rápido. Acompanhe gastos, gere gráficos, organize categorias e receba lembretes automáticos.</p>
+      <a class="cta-btn" href="#download">Baixar Agora</a>
+    </div>
+
+    <img src="/mnt/data/Captura de Tela 2025-11-15 às 01.03.35.png" alt="App Preview" />
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <h2>Funcionalidades do SmartGest</h2>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <img src="/mnt/data/icon.png" />
+        <h3>Dashboard Completo</h3>
+        <p>Visualize gráficos, balanço e relatórios intuitivos sobre seu mês.</p>
+      </div>
+
+      <div class="feature-item">
+        <img src="/mnt/data/icon.png" />
+        <h3>Controle por Categorias</h3>
+        <p>Organize gastos em categorias personalizadas com ícones dinâmicos.</p>
+      </div>
+
+      <div class="feature-item">
+        <img src="/mnt/data/icon.png" />
+        <h3>Notificações Automáticas</h3>
+        <p>Receba alertas de vencimentos e pagamentos pendentes.</p>
+      </div>
+
+      <div class="feature-item">
+        <img src="/mnt/data/icon.png" />
+        <h3>Design Moderno</h3>
+        <p>Interface parecida com aplicativos premium, rápida e fluida.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 SmartGest — Controle Financeiro Inteligente
+  </footer>
+
+</body>
 </html>
