@@ -1,52 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="icon" type="image/png" href="./icon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>SmartGest • Controle Financeiro Inteligente</title>
+  <link rel="icon" type="image/png" href="./icon.png" />
+
   <style>
+    /* ==========================
+       VARIÁVEIS DE TEMA
+    =========================== */
+    :root {
+      --bg: #f5f7fb;
+      --text: #1a1a1a;
+      --header: #1e90ff;
+      --header2: #4aa8ff;
+      --card: #ffffff;
+    }
+    body.dark {
+      --bg: #0d0d0d;
+      --text: #f1f1f1;
+      --header: #0b2a4b;
+      --header2: #145b8f;
+      --card: #1a1a1a;
+    }
+
+    /* ==========================
+       RESET + BASE
+    =========================== */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #1a1a1a;
+      background: var(--bg);
+      color: var(--text);
       overflow-x: hidden;
+      transition: background .3s, color .3s;
     }
 
-    /* HEADER */
+    a { color: inherit; }
+
+    /* ==========================
+       HEADER + MENU
+    =========================== */
     header {
-      background: linear-gradient(90deg, #1e90ff, #4aa8ff);
-      padding: 30px 20px;
+      background: linear-gradient(90deg, var(--header), var(--header2));
+      padding: 18px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: white;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
     }
+
     header img {
-      height: 55px;
-      border-radius: 12px;
+      height: 48px;
+      border-radius: 10px;
       animation: float 3s ease-in-out infinite;
     }
+
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
+      0%,100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
-    .menu a {
-      margin-left: 25px;
+
+    /* MENU DESKTOP */
+    nav.menu {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav.menu a {
       text-decoration: none;
       color: white;
       font-weight: 600;
-      transition: 0.3s;
-    }
-    .menu a:hover {
-      opacity: 0.8;
+      transition: .3s;
     }
 
-    /* HERO */
+    nav.menu a:hover {
+      opacity: 0.7;
+    }
+
+    /* MENU MOBILE (hambúrguer) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 28px;
+      height: 3px;
+      background: white;
+      transition: 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: linear-gradient(180deg, var(--header), var(--header2));
+      padding: 15px 20px;
+    }
+
+    .mobile-menu a {
+      padding: 12px 0;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* ==========================
+       HERO
+    =========================== */
     .hero {
       display: flex;
       flex-direction: row;
@@ -55,23 +124,17 @@
       padding: 80px 20px;
       gap: 60px;
     }
+
     .hero-text {
       max-width: 450px;
-      animation: fadeIn 1s ease forwards;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+
     .hero-text h1 {
       font-size: 42px;
       margin-bottom: 20px;
       color: #1e90ff;
     }
-    .hero-text p {
-      font-size: 18px;
-      line-height: 1.5;
-    }
+
     .cta-btn {
       display: inline-block;
       margin-top: 25px;
@@ -84,119 +147,130 @@
       text-decoration: none;
       transition: 0.3s;
     }
+
     .cta-btn:hover {
       background: #1577d6;
     }
+
     .hero img {
       width: 320px;
       border-radius: 25px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
-      animation: slideUp 1.2s ease forwards;
-    }
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     }
 
-    /* FEATURES */
+    /* ==========================
+       FEATURES
+    =========================== */
     .features {
-      padding: 70px 20px;
+      padding: 60px 20px;
       text-align: center;
-    }
-    .features h2 {
-      font-size: 32px;
-      margin-bottom: 50px;
-      color: #1e90ff;
     }
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
       gap: 30px;
-      padding: 0 20px;
     }
     .feature-item {
-      background: white;
-      padding: 30px;
+      background: var(--card);
+      padding: 25px;
       border-radius: 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: .3s;
     }
     .feature-item:hover {
       transform: translateY(-8px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
     .feature-item img {
-      height: 200px;
-      border-radius: 16px;
-      margin-bottom: 15px;
-    }
-    .feature-item h3 {
-      margin-bottom: 10px;
-      color: #1e90ff;
+      width: 100%;
+      border-radius: 15px;
     }
 
-    /* FOOTER */
+    /* ==========================
+       FOOTER
+    =========================== */
     footer {
-      background: #1e90ff;
+      background: var(--header);
       color: white;
       text-align: center;
       padding: 25px;
-      margin-top: 60px;
+      margin-top: 40px;
+    }
+
+    /* ==========================
+       RESPONSIVIDADE
+    =========================== */
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero img {
+        order: 2;
+      }
+      .hero-text {
+        order: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav.menu { display: none; }
+      .hamburger { display: flex; }
+      .hero-text h1 { font-size: 32px; }
+      .hero img { width: 280px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 { font-size: 28px; }
+      .hero-text p { font-size: 16px; }
+      .hero img { width: 240px; }
     }
   </style>
-<style>
-:root {
-  --bg: #ffffff;
-  --text: #1f1f1f;
-  --card: #f3f3f3;
-}
-body.dark {
-  --bg: #0e0e0e;
-  --text: #eaeaea;
-  --card: #1a1a1a;
-}
-body {
-  background: var(--bg);
-  color: var(--text);
-}
-.card {
-  background: var(--card);
-}
-/* Responsividade */
-@media (max-width: 768px) {
-  .section { padding: 20px; }
-  h1 { font-size: 1.8rem; }
-}
-@media (max-width: 480px) {
-  h1 { font-size: 1.5rem; }
-  p { font-size: 0.95rem; }
-}
-</style>
 </head>
+
 <body>
 
-  <!-- HEADER -->
+  <!-- ==========================
+       HEADER
+  =========================== -->
   <header>
     <img src="./iconSmart.png" alt="SmartGest Logo" />
+
+    <!-- MENU DESKTOP -->
     <nav class="menu">
       <a href="#features">Funcionalidades</a>
-      <a href="/SmartGestInfo/privacy.html">Privacy</a>
-      <a href="/SmartGestInfo/terms.html">Termos</a>
+      <a href="./privacy.html">Privacidade</a>
+      <a href="./terms.html">Termos</a>
     </nav>
+
+    <!-- MENU MOBILE -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features">Funcionalidades</a>
+    <a href="./privacy.html">Privacidade</a>
+    <a href="./terms.html">Termos</a>
+  </div>
+
+  <!-- ==========================
+       HERO
+  =========================== -->
   <section class="hero">
     <div class="hero-text">
       <h1>Simplifique sua Vida Financeira</h1>
-      <p>O SmartGest é seu aplicativo de controle financeiro moderno, inteligente e rápido. Acompanhe gastos, gere gráficos, organize categorias e receba lembretes automáticos.</p>
+      <p>O SmartGest é seu aplicativo de controle financeiro moderno, inteligente e rápido. Acompanhe gastos, gere gráficos e receba lembretes automáticos.</p>
       <a class="cta-btn" href="#download">Baixar Agora</a>
     </div>
 
     <img src="./icon.png" alt="App Preview" />
   </section>
 
-  <!-- FEATURES -->
+  <!-- ==========================
+       FEATURES
+  =========================== -->
   <section class="features" id="features">
     <h2>Funcionalidades do SmartGest</h2>
 
@@ -204,41 +278,40 @@ body {
       <div class="feature-item">
         <img src="./Reports.png" />
         <h3>Dashboard Completo</h3>
-        <p>Visualize gráficos, balanço e relatórios intuitivos sobre seu mês.</p>
+        <p>Gráficos e relatórios do mês de forma intuitiva.</p>
       </div>
 
       <div class="feature-item">
         <img src="./Category.png" />
         <h3>Controle por Categorias</h3>
-        <p>Organize gastos em categorias personalizadas com ícones dinâmicos.</p>
+        <p>Organize gastos com ícones modernos e interativos.</p>
       </div>
 
       <div class="feature-item">
         <img src="./ListTransactions.png" />
         <h3>Notificações Automáticas</h3>
-        <p>Receba alertas de vencimentos e pagamentos pendentes.</p>
+        <p>Receba lembretes automáticos sobre vencimentos.</p>
       </div>
 
       <div class="feature-item">
         <img src="./HomePage.png" />
         <h3>Design Moderno</h3>
-        <p>Interface parecida com aplicativos premium, rápida e fluida.</p>
+        <p>Interface rápida, fluida e com estética premium.</p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     © 2025 SmartGest — Controle Financeiro Inteligente
   </footer>
 
-<script>
-// Toggle Dark Mode
-const toggle = document.getElementById('themeToggle');
-if (toggle) {
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-  });
-}
-</script></body>
+  <!-- SCRIPT MENU MOBILE -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
+
+</body>
 </html>
