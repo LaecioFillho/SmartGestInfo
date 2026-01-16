@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SmartGest • Controle Financeiro Inteligente</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SmartGest – App de Controle Financeiro Simples e Inteligente</title>
+
+  <meta name="description" content="Controle seus gastos, organize suas finanças e visualize gráficos claros com o SmartGest. App de controle financeiro simples, moderno e intuitivo.">
+  <meta name="keywords" content="controle financeiro, app financeiro, organizar gastos, finanças pessoais, controle de despesas">
+  <meta name="author" content="SmartGest">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SmartGest – Controle Financeiro Inteligente">
+  <meta property="og:description" content="Organize seus gastos, visualize gráficos e simplifique sua vida financeira.">
+  <meta property="og:image" content="./icon.png">
+  <meta property="og:type" content="website">
+
   <link rel="icon" type="image/png" href="./icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <meta name="description" content="SmartGest — app de controle financeiro simples, intuitivo e moderno. Organize despesas, categorias, relatórios e lembretes de pagamento.">
 
-  
   <style>
     body {
       margin: 0;
       font-family: "Inter", Arial, sans-serif;
       background: #f5f7fb;
       color: #1a1a1a;
-      overflow-x: hidden;
     }
 
     header {
       background: linear-gradient(90deg, #1e90ff, #4aa8ff);
-      padding: 20px;
+      padding: 18px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -31,43 +40,11 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     header img {
-      height: 55px;
-      border-radius: 16px;
-      animation: float 2s infinite ease-in-out;
-    }
-
-    .play-icon-wrapper {
-      width: 18px;
-      height: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .play-icon-wrapper img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain; /* 🔑 evita esticar */
-      display: block;
-    }
-
-
-    @keyframes float {
-      0% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-6px);
-      }
-
-      100% {
-        transform: translateY(0);
-      }
+      height: 48px;
+      border-radius: 14px;
     }
 
     .menu {
@@ -78,17 +55,12 @@
     .menu a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .menu a:hover {
-      opacity: 0.8;
+      font-weight: 600;
     }
 
     .menu-btn {
       display: none;
-      font-size: 30px;
+      font-size: 28px;
       cursor: pointer;
     }
 
@@ -96,149 +68,83 @@
       .menu {
         display: none;
         flex-direction: column;
-        background: rgba(0, 0, 0, 0.85);
         position: absolute;
-        top: 70px;
+        top: 65px;
         right: 20px;
-        padding: 20px;
-        border-radius: 16px;
-        backdrop-filter: blur(10px);
         background: linear-gradient(90deg, #1e90ff, #4aa8ff);
+        padding: 18px;
+        border-radius: 14px;
       }
-
-      .menu-btn {
-        display: block;
-        
-      }
-
-      .contact {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .contact form {
-        width: 80%;
-        background: white;
-        padding: 30px;
-        border-radius: 22px;
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-      }
-
-      .contact input,
-      .contact textarea {
-        width: 90%;
-        padding: 14px;
-        margin: 12px 0;
-        border-radius: 12px;
-        border: 1px solid #cfd6e3;
-        font-size: 16px;
-      }
-
-      .play-icon-wrapper {
-        width: 18px;
-        height: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .play-icon-wrapper img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain; /* 🔑 evita esticar */
-        display: block;
-      }
-
+      .menu-btn { display: block; }
     }
 
     /* HERO */
     .hero {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      gap: 50px;
       padding: 60px 20px;
-      gap: 60px;
-    }
-
-    .hero img {
-      width: 300px;
-      border-radius: 42px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      text-align: left;
     }
 
     .hero-text {
-      max-width: 450px;
-      animation: fadeIn 1.2s;
+      max-width: 480px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .benefits {
+      margin: 20px 0;
+    }
+
+    .benefits li {
+      margin-bottom: 8px;
     }
 
     .download-buttons {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      margin-top: 30px;
-      flex-wrap: wrap; /* quebra no mobile */
-    }
-
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      gap: 14px;
+      margin-top: 25px;
+      flex-wrap: wrap;
     }
 
     .cta-btn {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 10px;
-    
       background: #1e90ff;
-      padding: 14px 22px;
-      color: white;
+      padding: 14px 20px;
       border-radius: 14px;
-    
-      font-size: 16px;
-      font-weight: bold;
+      color: white;
       text-decoration: none;
-    
-      white-space: nowrap; /* não quebra texto */
-      box-shadow: 0 5px 20px rgba(30, 144, 255, 0.35);
-      transition: 0.3s;
+      font-weight: bold;
+      box-shadow: 0 5px 18px rgba(30,144,255,.35);
+      transition: .3s;
+    }
+
+    .cta-btn span {
+      font-size: 13px;
+      opacity: .9;
     }
 
     .cta-btn:hover {
       transform: translateY(-3px);
     }
 
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-      }
-
-      .play-icon-wrapper {
-        width: 18px;
-        height: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .play-icon-wrapper img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain; /* 🔑 evita esticar */
-        display: block;
-      }
-
+    .hero img {
+      width: 280px;
+      border-radius: 36px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.15);
     }
 
     /* FEATURES */
@@ -248,252 +154,19 @@
     }
 
     .features h2 {
+      font-size: 32px;
       color: #1e90ff;
-      font-size: 34px;
-      font-weight: 700;
     }
 
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 35px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
       margin-top: 50px;
     }
 
     .feature-item {
       background: white;
-      padding: 30px;
-      border-radius: 28px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-      transition: 0.3s;
-    }
-
-    .feature-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-    }
-
-    .feature-item img {
-      width: 100%;
-      border-radius: 50px;
-    }
-
-    .contact {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .contact form {
-        width: 80%;
-        background: white;
-        padding: 30px;
-        border-radius: 22px;
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-      }
-
-      .contact input,
-      .contact textarea {
-        width: 90%;
-        padding: 14px;
-        margin: 12px 0;
-        border-radius: 12px;
-        border: 1px solid #cfd6e3;
-        font-size: 16px;
-      }
-
-    .contact button {
-      width: 40%;
-      padding: 16px;
-      background: #1e90ff;
-      border: none;
-      border-radius: 14px;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .contact button:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-       /* CONTATO */
-    .contact {
-      display: flex;
-      flex-direction: column;
-      margin: auto;
-      text-align: center;
-      width: 90%;
-    }
-
-    .contact form {
-      width: 80%;
-      background: white;
-      padding: 30px;
-      border-radius: 22px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact input,
-    .contact textarea {
-      width: 90%;
-      padding: 14px;
-      margin: 12px 0;
-      border-radius: 12px;
-      border: 1px solid #cfd6e3;
-      font-size: 16px;
-    }
-    }
-
-    /* FOOTER */
-    footer {
-      background: #1e90ff;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 80px;
-      font-size: 15px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <img src="./iconSmart.png" alt="SmartGest Logo" />
-
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-    <nav class="menu" id="menu">
-      <a href="#features">Funcionalidades</a>
-      <a href="privacy.html">Privacidade</a>
-      <a href="terms.html">Termos</a>
-      <a href="#contact">Contato</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Simplifique Sua Vida Financeira</h1>
-      <p>O SmartGest é seu aplicativo de controle financeiro inteligente. Acompanhe gastos, visualize gráficos
-        atualizados e organize tudo facilmente.</p>
-      <div class="download-buttons">
-        <a class="cta-btn apple" 
-           href="https://apps.apple.com/br/app/smartgest/id6756739101" 
-           target="_blank">
-            App Store
-          <p>R$ 9,90 (pagamento único!)</p>
-        </a>
-      
-        <a class="cta-btn google" 
-           href="https://forms.gle/FPwJi7MGuJDk4Yiw8" 
-           target="_blank">
-          <span class="play-icon-wrapper">
-            <img src="./IconePlay.png" alt="Play Store" />
-          </span>
-          Play Store
-          <p>R$ 0,99 (ao mês!)</p>
-        </a>
-      </div>
-
-    </div>
-
-    <img src="./icon.png" alt="App Preview" />
-  </section>
-
-  <section class="features" id="features">
-    <h2>Funcionalidades</h2>
-
-    <div class="feature-grid">
-      <div class="feature-item">
-        <img src="./Reports.png" />
-        <h3>Dashboard Completo</h3>
-        <h5>Veja gráficos claros e rápidos sobre seus gastos.</h5>
-        <p>- Visualize gráfico de barras do total de cada categoria;</p>
-        <p>- Visualize gráfico de linhas do total gasto em cada dia da semana;</p>
-        <p>- Visualize o historico das atualizações dos seu últimos saldos;</p>
-        <p>- Visualize o total gasto em cada mês anterior.</p>
-      </div>
-
-      <div class="feature-item">
-        <img src="./Category.png" />
-        <h3>Categorias Inteligentes</h3>
-        <h5>Organize facilmente suas despesas por categoria.</h5>
-        <p>- Crie categorias com base dos seu gastos do dia-a-dia;</p>
-        <p>- Personalize suas categorias de acordo com que desejar;</p>
-        <p>- Edite a qualquer momento e deixe da maneira que necessitar.</p>
-      </div>
-
-      <div class="feature-item">
-        <img src="./ListTransactions.png" />
-        <h3>Lista de Transações</h3>
-        <h5>Consulte todas as transações registradas.</h5>
-        <p>- Filtre e visualize transões por cada categoria registrada;</p>
-        <p>- Filtre e visualize transões pela a data em que foi registrado;</p>
-        <p>- Edite e visualize os detalhes da transação conforme registrado;</p>
-      </div>
-
-      <div class="feature-item">
-        <img src="./HomePage.png" />
-        <h3>Interface Moderna</h3>
-        <h5>Bonito, rápido e intuitivo.</h5>
-        <p>- Visualize saldo registrado atualmente;</p>
-        <p>- Porcentagem de compras realizadas em cada categoria no mês;</p>
-        <p>- Gráfico de barras, representando total gasto em cada dia da semana atual.</p>
-      </div>
-    </div>
-
-    <div class="feature-item">
-        <img src="./Balance.png" />
-        <h3>Atualizar Saldo</h3>
-        <h5>Atualize seu saldo a qualquer momento</h5>
-        <p>- Historico da atualização do saldo;</p>
-        <p>- Registre seu Salario, Rendas Extras e etc...</p>
-      </div>
-    </div>
-
-    <div class="feature-item">
-        <img src="./Lembretes.png" />
-        <h3>Lembretes</h3>
-        <h5>Organize seus Pagamentos</h5>
-        <p>- Adicione os pagamentos recorrentes mensalmente;</p>
-        <p>- Registre como pago, logo após realizar o pagamento das suas contas;</p>
-        <p>- Tenha listado todos os pagamentos que realiza mensalmente, evitar esquecimentos.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <h2>Contato</h2>
-    <p>Envie uma mensagem, responderemos em breve.</p>
-
-    <form action="https://formsubmit.co/smartgestsuporte@gmail.com" method="POST">
-      <div>
-        <input type="text" name="name" placeholder="Seu nome" required>
-        <input type="email" name="email" placeholder="Seu email" required>
-      </div>
-      <textarea name="message" rows="5" placeholder="Sua mensagem" required>
-
-      </textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-
-  <footer>
-    © 2025 SmartGest — Controle Financeiro Inteligente
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("menu");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-    }
-  </script>
-
-</body>
-</html>
+      padding: 28px;
+      border-radius: 24px;
+      box-s
